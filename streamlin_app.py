@@ -110,14 +110,10 @@ def main():
             width: 100%;
             text-align: center;
             color: #a6a4c1;
-	    border: 1px solid #1e1b44
         }
-	/* タブの下線の色 */
-	div[role="tablist"] button::before {
-	    background-color: #1e1b44; /* ここでタブの下線の色を変更できます */
-	}
         div[role="tablist"] button[aria-selected="true"] {
             color: #1e1b44;
+	    border: 1px solid #1e1b44
         }
         </style>
     """, unsafe_allow_html=True)
