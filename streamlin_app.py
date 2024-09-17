@@ -62,7 +62,7 @@ def main():
 		</style>
     """
 	
-    st.markdown(const.HIDE_ST_STYLE, unsafe_allow_html=True)
+    st.markdown(HIDE_ST_STYLE, unsafe_allow_html=True)
 
     # スプレッドシートのURLを設定 (1日目、2日目、3日目)
     df_day1 = load_csv(st.secrets.CSV1_URL)
