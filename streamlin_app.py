@@ -112,7 +112,7 @@ def display_schedule(df, icon_df):
         </div>
         """, unsafe_allow_html=True)
 	    
-	if st.button("A"):
+        if st.button("A"):
             st.write("A")
 
 # CSV読み込み用関数
