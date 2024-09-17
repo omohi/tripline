@@ -116,7 +116,7 @@ def main():
         }
 	/* 選択されたタブの下線の色 */
 	div[role="tablist"] button[aria-selected="true"]::after {
-	    background-color: #1e1b44; /* 選択されたタブの下線の色 */
+	    color: #1e1b44; /* 選択されたタブの下線の色 */
 	}
         </style>
     """, unsafe_allow_html=True)
