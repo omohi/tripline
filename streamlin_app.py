@@ -14,11 +14,11 @@ def main():
     st.set_page_config(layout="wide") 
     st.title("北海道旅行のスケジュール")
 
-    df = pd.read_csv(CSV1_URL)
+    df = pd.read_csv(st.seacrets.CSV1_URL)
     df['時間'] = df['時間'].apply(format_time)
     
     # スプレッドシートのURLを設定
-    icon_df, icon_classes = load_icon_data(ICON_SHEET_URL)
+    icon_df, icon_classes = load_icon_data(st.seacrets.ICON_SHEET_URL)
     
     # CSSを適用
     st.markdown(get_css(icon_classes), unsafe_allow_html=True)
