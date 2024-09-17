@@ -111,6 +111,10 @@ def main():
             text-align: center;
             color: #5c588b;
         }
+	/* タブの下線の色 */
+	div[role="tablist"] button::before {
+	    background-color: #1e1b44; /* ここでタブの下線の色を変更できます */
+	}
         div[role="tablist"] button[aria-selected="true"] {
             color: #1e1b44;
         }
