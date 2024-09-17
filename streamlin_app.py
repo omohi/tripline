@@ -27,16 +27,12 @@ def main():
 	margin-top: 0 !important;
 	padding-top: 0 !important;
 	}
-	
 	/* スペースを削除するための追加スタイル */
-	.element-container {
-	margin-top: 0 !important;
-	padding-top: 0 !important;
-	}
-	
-	.stMarkdown {
-	margin-top: 0 !important;
-	padding-top: 0 !important;
+	.element-container,
+	.stMarkdown,
+	.stMarkdownContainer {
+	margin: 0 !important;
+	padding: 0 !important;
 	}
 	</style>
 	""",
