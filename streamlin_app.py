@@ -60,7 +60,7 @@ def main():
 		z-index: 100;
 		}
 		</style>
-　　	"""
+　　"""
 
 　　st.markdown(const.HIDE_ST_STYLE, unsafe_allow_html=True)
 
