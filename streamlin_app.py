@@ -63,7 +63,6 @@ def main():
         }
         div[role="tablist"] button[aria-selected="true"] {
             color: #1e1b44;
-            border-bottom: 2px solid #1e1b44;
         }
         </style>
     """, unsafe_allow_html=True)
