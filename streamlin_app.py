@@ -13,6 +13,7 @@ def format_time(time_str):
 def main():
     st.set_page_config(layout="wide") 
     st.title("Hokkaido Trip 0921-0923")
+    st.divider()
 
     st.markdown(
         """
