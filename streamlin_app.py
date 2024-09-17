@@ -38,8 +38,10 @@ def main():
 	unsafe_allow_html=True
     )
 
-    st.title("Hokkaido Trip 0921-0923")
-    st.write("---")
+    st.markdown("""
+    Hokkaido Trip 0921-0923
+    ---
+    """)
 
     # スプレッドシートのURLを設定 (1日目、2日目、3日目)
     df_day1 = load_csv(st.secrets.CSV1_URL)
