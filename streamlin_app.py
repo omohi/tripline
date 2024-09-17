@@ -101,17 +101,24 @@ def display_schedule(df, icon_df):
     for index, row in df.iterrows():
         icon, bg_color = get_icon(row['アイコン'], icon_df)
         remarks = row['備考'] if pd.notna(row['備考']) and row['備考'].strip() != '' else ''
-        
-        # スケジュール項目にクリックイベントを設定
-        if st.button(f"{row['時間']} - {row['スケジュール']}", key=index):
-            with st.dialog(f"Details for {row['スケジュール']}"):
-                st.markdown(f"""
-                <div class="icon" style="background-color: {bg_color};">{icon}</div>
-                <div class="details">
-                    <div class="schedule">{row['スケジュール']}</div>
-                    <div class="remarks">{remarks}</div>
-                </div>
-                """, unsafe_allow_html=True)
+        details = row['説明'] if pd.notna(row['説明']) and row['説明'].strip() != '' else '詳細情報なし'
+
+        st.markdown(f"""
+        <div class="schedule-container">
+            <div class="time">{row['時間']}</div>
+            <div class="icon" style="background-color: {bg_color};">{icon}</div>
+            <div class="details">
+                <div class="schedule">{row['スケジュール']}</div>
+                <div class="remarks">{remarks}</div>
+                <span class="more-info-button" onclick="document.getElementById('detail-{index}').style.display='block'">詳細</span>
+            </div>
+        </div>
+        <div id="detail-{index}" style="display: none;">
+            <div class="details">
+                <p>{details}</p>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
 
 # # スケジュール表示用の関数
 # def display_schedule(df, icon_df):
