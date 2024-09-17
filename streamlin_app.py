@@ -38,31 +38,31 @@ def main():
                 visibility: hidden;
                 height: 0%;
                 }
-				        .appview-container .main .block-container{
-                            padding-top: 1rem;
-                            padding-right: 3rem;
-                            padding-left: 3rem;
-                            padding-bottom: 1rem;
-                        }  
-                        .reportview-container {
-                            padding-top: 0rem;
-                            padding-right: 3rem;
-                            padding-left: 3rem;
-                            padding-bottom: 0rem;
-                        }
-                        header[data-testid="stHeader"] {
-                            z-index: -1;
-                        }
-                        div[data-testid="stToolbar"] {
-                        z-index: 100;
-                        }
-                        div[data-testid="stDecoration"] {
-                        z-index: 100;
-                        }
-                </style>
-"""
+		.appview-container .main .block-container{
+		    padding-top: 1rem;
+		    padding-right: 3rem;
+		    padding-left: 3rem;
+		    padding-bottom: 1rem;
+		}  
+		.reportview-container {
+		    padding-top: 0rem;
+		    padding-right: 3rem;
+		    padding-left: 3rem;
+		    padding-bottom: 0rem;
+		}
+		header[data-testid="stHeader"] {
+		    z-index: -1;
+		}
+		div[data-testid="stToolbar"] {
+		z-index: 100;
+		}
+		div[data-testid="stDecoration"] {
+		z-index: 100;
+		}
+		</style>
+　　	"""
 
-st.markdown(const.HIDE_ST_STYLE, unsafe_allow_html=True)
+　　st.markdown(const.HIDE_ST_STYLE, unsafe_allow_html=True)
 
     # スプレッドシートのURLを設定 (1日目、2日目、3日目)
     df_day1 = load_csv(st.secrets.CSV1_URL)
