@@ -12,12 +12,16 @@ def format_time(time_str):
 # メインのStreamlitアプリの関数
 def main():
     st.set_page_config(layout="wide") 
-    st.title("北海道旅行のスケジュール")
+    st.title("Hokkaido Trip 0921-0923")
 
     # スプレッドシートのURLを設定 (1日目、2日目、3日目)
     df_day1 = load_csv(st.secrets.CSV1_URL)
     df_day2 = load_csv(st.secrets.CSV2_URL)
     df_day3 = load_csv(st.secrets.CSV3_URL)
+
+    df_day1['時間'] = df_day1['時間'].apply(format_time)
+    df_day2['時間'] = df_day2['時間'].apply(format_time)
+    df_day3['時間'] = df_day3['時間'].apply(format_time)
 
     # アイコン情報を取得
     icon_df, icon_classes = load_icon_data(st.secrets.ICON_SHEET_URL)
@@ -41,7 +45,7 @@ def main():
     """, unsafe_allow_html=True)
 
     # タブで日ごとのスケジュールを表示
-    tabs = st.tabs(["1日目", "2日目", "3日目"])
+    tabs = st.tabs(["Day1", "Day2", "Day3"])
 
     with tabs[0]:
         st.write("### 1日目のスケジュール")
