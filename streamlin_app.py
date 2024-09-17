@@ -29,35 +29,39 @@ def main():
     # CSSを適用
     st.markdown(get_css(icon_classes), unsafe_allow_html=True)
 
-    # タブを横いっぱいに広げるためのCSS
-    st.markdown("""
-        <style>
-        div[role="tablist"] > div {
-            width: 100%;
-            display: flex;
-            justify-content: space-evenly;
-        }
-        button[kind="secondaryTab"] {
-            flex-grow: 1;
-            text-align: center;
-        }
-        </style>
-    """, unsafe_allow_html=True)
-
     # タブで日ごとのスケジュールを表示
     tabs = st.tabs(["Day1", "Day2", "Day3"])
 
     with tabs[0]:
-        st.write("### 1日目のスケジュール")
         display_schedule(df_day1, icon_df)
     
     with tabs[1]:
-        st.write("### 2日目のスケジュール")
         display_schedule(df_day2, icon_df)
     
     with tabs[2]:
-        st.write("### 3日目のスケジュール")
         display_schedule(df_day3, icon_df)
+
+# タブを横いっぱいに広げるためのCSS
+st.markdown("""
+    <style>
+    /* タブ全体を横幅いっぱいに広げる */
+    div[role="tablist"] {
+        display: flex;
+        width: 100%;
+    }
+    div[role="tablist"] > div {
+        flex: 1;
+    }
+    /* タブのテキストを中央に配置 */
+    div[role="tablist"] button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
 # スケジュール表示用の関数
 def display_schedule(df, icon_df):
