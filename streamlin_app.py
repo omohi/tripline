@@ -117,6 +117,7 @@ def main():
 	/* 非選択タブの下線の色 */
 	div[data-baseweb="tab-highlight"]:not([aria-selected="true"]) {
 	    background-color: #1e1b44; /* 非選択タブの下線の色 */
+     	    color: 4f84e6;
 	}
         </style>
     """, unsafe_allow_html=True)
