@@ -21,6 +21,11 @@ def main():
         header[data-testid="stHeader"] {
 	    display: none;
         }
+	/* ヘッダーのスペースを削除する */
+    	.stAppViewBlockContainer {
+            margin-top: 0 !important;
+	    padding-top: 0 !important;
+    	}
         </style>
         """,
         unsafe_allow_html=True
