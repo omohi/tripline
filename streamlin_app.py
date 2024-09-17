@@ -66,7 +66,8 @@ def main():
 # スケジュール表示用の関数
 def display_schedule(df, icon_df):
     for index, row in df.iterrows():
-        icon, bg_color = get_icon(row['アイコン'], icon_df)  # 備考に応じてアイコンを取得
+        icon, bg_color = get_icon(row['アイコン'], icon_df)
+        remarks = row['備考'] if pd.notna(row['備考']) and row['備考'].strip() != '' else ''
         st.markdown(f"""
         <div class="schedule-container">
             <div class="time">{row['時間']}</div>
