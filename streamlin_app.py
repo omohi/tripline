@@ -102,20 +102,41 @@ def display_schedule(df, icon_df):
         icon, bg_color = get_icon(row['アイコン'], icon_df)
         remarks = row['備考'] if pd.notna(row['備考']) and row['備考'].strip() != '' else ''
         
-        # ボタンのアクション
-        if st.button(f"詳細を見る ({row['時間']})", key=f"button_{index}"):
-            st.write(f"スケジュール: {row['スケジュール']}")
-            st.write(f"備考: {remarks}")
-
         st.markdown(f"""
+        <style>
+        .schedule-button {{
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 4px;
+            font-size: 14px;
+            color: #ffffff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }}
+        .schedule-button:hover {{
+            background-color: #0056b3;
+        }}
+        </style>
         <div class="schedule-container">
             <div class="time">{row['時間']}</div>
             <div class="icon" style="background-color: {bg_color};">{icon}</div>
             <div class="details">
-                <div class="schedule">{row['スケジュール']}</div>
+                <a class="schedule-button" href="#"
+                   onclick="showDetails('{row['スケジュール']}', '{remarks}')">
+                   {row['スケジュール']}
+                </a>
                 <div class="remarks">{remarks}</div>
             </div>
         </div>
+        <script>
+        function showDetails(schedule, remarks) {{
+            alert('スケジュール: ' + schedule + '\\n備考: ' + remarks);
+        }}
+        </script>
         """, unsafe_allow_html=True)
 
 # # スケジュール表示用の関数
