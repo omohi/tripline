@@ -74,7 +74,7 @@ def display_schedule(df, icon_df):
             <div class="icon" style="background-color: {bg_color};">{icon}</div>
             <div class="details">
                 <div class="schedule">{row['スケジュール']}</div>
-                <div class="remarks">{row['備考']}</div>
+                <div class="remarks">{remarks}</div>
             </div>
         </div>
         """, unsafe_allow_html=True)
