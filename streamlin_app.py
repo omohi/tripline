@@ -33,6 +33,10 @@ def main():
             display: flex;
             justify-content: space-evenly;
         }
+        button[kind="secondaryTab"] {
+            flex-grow: 1;
+            text-align: center;
+        }
         </style>
     """, unsafe_allow_html=True)
 
