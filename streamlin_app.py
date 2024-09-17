@@ -15,9 +15,9 @@ def main():
     st.title("北海道旅行のスケジュール")
 
     # スプレッドシートのURLを設定 (1日目、2日目、3日目)
-    df_day1 = pd.read_csv(st.secrets.CSV1_URL)
-    df_day2 = pd.read_csv(st.secrets.CSV2_URL)
-    df_day3 = pd.read_csv(st.secrets.CSV3_URL)
+    df_day1 = load_csv(st.secrets.CSV1_URL)
+    df_day2 = load_csv(st.secrets.CSV2_URL)
+    df_day3 = load_csv(st.secrets.CSV3_URL)
 
     # アイコン情報を取得
     icon_df, icon_classes = load_icon_data(st.secrets.ICON_SHEET_URL)
@@ -25,11 +25,17 @@ def main():
     # CSSを適用
     st.markdown(get_css(icon_classes), unsafe_allow_html=True)
 
-    # 時間を整形
-    df_day1['時間'] = df_day1['時間'].apply(format_time)
-    df_day2['時間'] = df_day2['時間'].apply(format_time)
-    df_day3['時間'] = df_day3['時間'].apply(format_time)
-    
+    # タブを横いっぱいに広げるためのCSS
+    st.markdown("""
+        <style>
+        div[role="tablist"] > div {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+
     # タブで日ごとのスケジュールを表示
     tabs = st.tabs(["1日目", "2日目", "3日目"])
 
@@ -59,6 +65,14 @@ def display_schedule(df, icon_df):
             </div>
         </div>
         """, unsafe_allow_html=True)
+
+# CSV読み込み用関数
+def load_csv(url):
+    try:
+        return pd.read_csv(url)
+    except Exception as e:
+        st.error(f"Failed to load data from {url}: {e}")
+        return pd.DataFrame()  # 空のDataFrameを返す
 
 if __name__ == "__main__":
     main()
