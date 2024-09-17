@@ -62,7 +62,7 @@ def main():
             color: #5c588b;
         }
         div[role="tablist"] button[aria-selected="true"] {
-            border-bottom: 2px solid #1e1b44; /* 選択されたタブの下線色（紫色） */
+            color: #1e1b44;
         }
         </style>
     """, unsafe_allow_html=True)
