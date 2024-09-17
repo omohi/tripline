@@ -33,7 +33,7 @@ def get_css(icon_classes):
         justify-content: flex-start;  /* 左寄せに設定 */
     }
     .time {
-        font-size: 24px;  /* 少し小さめに変更 */
+        font-size: 22px;  /* 少し小さめに変更 */
         color: #FF6347;
         text-align: left;
         margin-right: 10px;  /* アイコンとの間隔を調整 */
