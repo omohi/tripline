@@ -95,47 +95,22 @@ def main():
 	}
         </style>
     """, unsafe_allow_html=True)
-
-# スケジュールの詳細を表示する関数
-def show_details(schedule, remarks):
-    st.write(f"スケジュール: {schedule}")
-    st.write(f"備考: {remarks}")
-
+	    
 # スケジュール表示用の関数
 def display_schedule(df, icon_df):
     for index, row in df.iterrows():
         icon, bg_color = get_icon(row['アイコン'], icon_df)
         remarks = row['備考'] if pd.notna(row['備考']) and row['備考'].strip() != '' else ''
-
-        # スケジュールの文字をボタンとして表示
-        if st.button(f"{row['スケジュール']}", key=f"button_{index}"):
-            show_details(row['スケジュール'], remarks)
-        
         st.markdown(f"""
         <div class="schedule-container">
             <div class="time">{row['時間']}</div>
             <div class="icon" style="background-color: {bg_color};">{icon}</div>
             <div class="details">
+                <div class="schedule">{row['スケジュール']}</div>
                 <div class="remarks">{remarks}</div>
             </div>
         </div>
         """, unsafe_allow_html=True)
-	    
-# # スケジュール表示用の関数
-# def display_schedule(df, icon_df):
-#     for index, row in df.iterrows():
-#         icon, bg_color = get_icon(row['アイコン'], icon_df)
-#         remarks = row['備考'] if pd.notna(row['備考']) and row['備考'].strip() != '' else ''
-#         st.markdown(f"""
-#         <div class="schedule-container">
-#             <div class="time">{row['時間']}</div>
-#             <div class="icon" style="background-color: {bg_color};">{icon}</div>
-#             <div class="details">
-#                 <div class="schedule">{row['スケジュール']}</div>
-#                 <div class="remarks">{remarks}</div>
-#             </div>
-#         </div>
-#         """, unsafe_allow_html=True)
 
 # CSV読み込み用関数
 def load_csv(url):
