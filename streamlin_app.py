@@ -111,9 +111,6 @@ def display_schedule(df, icon_df):
             </div>
         </div>
         """, unsafe_allow_html=True)
-	    
-        if st.button("もっと見る"):
-            st.write("A")
 
 # CSV読み込み用関数
 def load_csv(url):
