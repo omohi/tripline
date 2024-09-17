@@ -110,6 +110,7 @@ def main():
             width: 100%;
             text-align: center;
             color: #a6a4c1;
+	    border: 1px solid #1e1b44
         }
 	/* タブの下線の色 */
 	div[role="tablist"] button::before {
