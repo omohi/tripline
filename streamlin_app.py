@@ -12,9 +12,7 @@ def format_time(time_str):
 # メインのStreamlitアプリの関数
 def main():
     st.set_page_config(layout="wide") 
-    st.title("Hokkaido Trip 0921-0923")
-    st.divider()
-
+	
     st.markdown(
         """
 	<style>
@@ -39,6 +37,9 @@ def main():
 	""",
 	unsafe_allow_html=True
     )
+
+    st.title("Hokkaido Trip 0921-0923")
+    st.write("---")
 
     # スプレッドシートのURLを設定 (1日目、2日目、3日目)
     df_day1 = load_csv(st.secrets.CSV1_URL)
