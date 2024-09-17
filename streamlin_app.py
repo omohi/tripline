@@ -103,24 +103,6 @@ def display_schedule(df, icon_df):
         remarks = row['備考'] if pd.notna(row['備考']) and row['備考'].strip() != '' else ''
         
         st.markdown(f"""
-        <style>
-        .schedule-button {{
-            display: inline-block;
-            padding: 8px 16px;
-            margin: 4px;
-            font-size: 14px;
-            color: #ffffff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-        }}
-        .schedule-button:hover {{
-            background-color: #0056b3;
-        }}
-        </style>
         <div class="schedule-container">
             <div class="time">{row['時間']}</div>
             <div class="icon" style="background-color: {bg_color};">{icon}</div>
@@ -138,7 +120,7 @@ def display_schedule(df, icon_df):
         }}
         </script>
         """, unsafe_allow_html=True)
-
+	    
 # # スケジュール表示用の関数
 # def display_schedule(df, icon_df):
 #     for index, row in df.iterrows():
