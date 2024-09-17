@@ -16,19 +16,31 @@ def main():
 
     st.markdown(
         """
-        <style>
-        /* ヘッダーを非表示にする */
-        header[data-testid="stHeader"] {
-	    display: none;
-        }
+	<style>
+	/* ヘッダーを非表示にする */
+	header[data-testid="stHeader"] {
+	display: none;
+	}
+	
 	/* ヘッダーのスペースを削除する */
-    	.stAppViewBlockContainer {
-            margin-top: 0 !important;
-	    padding-top: 0 !important;
-    	}
-        </style>
-        """,
-        unsafe_allow_html=True
+	.stAppViewBlockContainer {
+	margin-top: 0 !important;
+	padding-top: 0 !important;
+	}
+	
+	/* スペースを削除するための追加スタイル */
+	.element-container {
+	margin-top: 0 !important;
+	padding-top: 0 !important;
+	}
+	
+	.stMarkdown {
+	margin-top: 0 !important;
+	padding-top: 0 !important;
+	}
+	</style>
+	""",
+	unsafe_allow_html=True
     )
 
     # スプレッドシートのURLを設定 (1日目、2日目、3日目)
