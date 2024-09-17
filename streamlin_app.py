@@ -60,6 +60,9 @@ def main():
             width: 100%;
             text-align: center;
         }
+        div[role="tablist"] button {
+            background-color: #5c588b;
+        }
         </style>
     """, unsafe_allow_html=True)
 
