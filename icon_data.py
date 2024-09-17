@@ -44,6 +44,7 @@ def get_css(icon_classes):
         height: 40px;  /* 高さを設定 */
         margin-right: 10px; /* アイコンとスケジュールの間隔を調整 */
         display: flex;
+        font: Roboto;
         align-items: center;
         justify-content: center;
         border-radius: 50% !important;  /* 円形にする */
