@@ -21,6 +21,7 @@ def get_css(icon_classes):
     <head>
         <!-- Font Awesome CDN -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
     </head>
     <style>
     .schedule-container {
@@ -36,6 +37,7 @@ def get_css(icon_classes):
         font-size: 22px;  /* 少し小さめに変更 */
         color: #1e1b44;
         text-align: left;
+        font-family: 'M PLUS Rounded 1c', sans-serif;
         margin-right: 10px;  /* アイコンとの間隔を調整 */
     }
     .icon {
@@ -44,7 +46,6 @@ def get_css(icon_classes):
         height: 40px;  /* 高さを設定 */
         margin-right: 10px; /* アイコンとスケジュールの間隔を調整 */
         display: flex;
-        font: Roboto;
         align-items: center;
         justify-content: center;
         border-radius: 50% !important;  /* 円形にする */
