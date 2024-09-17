@@ -101,7 +101,11 @@ def display_schedule(df, icon_df):
     for index, row in df.iterrows():
         icon, bg_color = get_icon(row['アイコン'], icon_df)
         remarks = row['備考'] if pd.notna(row['備考']) and row['備考'].strip() != '' else ''
-        details = row['説明'] if pd.notna(row['説明']) and row['説明'].strip() != '' else '詳細情報なし'
+        
+        # ボタンのアクション
+        if st.button(f"詳細を見る ({row['時間']})", key=f"button_{index}"):
+            st.write(f"スケジュール: {row['スケジュール']}")
+            st.write(f"備考: {remarks}")
 
         st.markdown(f"""
         <div class="schedule-container">
@@ -110,12 +114,6 @@ def display_schedule(df, icon_df):
             <div class="details">
                 <div class="schedule">{row['スケジュール']}</div>
                 <div class="remarks">{remarks}</div>
-                <span class="more-info-button" onclick="document.getElementById('detail-{index}').style.display='block'">詳細</span>
-            </div>
-        </div>
-        <div id="detail-{index}" style="display: none;">
-            <div class="details">
-                <p>{details}</p>
             </div>
         </div>
         """, unsafe_allow_html=True)
