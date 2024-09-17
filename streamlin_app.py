@@ -14,17 +14,39 @@ def main():
     st.set_page_config(layout="wide") 
     st.title("北海道旅行のスケジュール")
 
-    df = pd.read_csv(st.secrets.CSV1_URL)
-    df['時間'] = df['時間'].apply(format_time)
-    
-    # スプレッドシートのURLを設定
+    # スプレッドシートのURLを設定 (1日目、2日目、3日目)
+    df_day1 = pd.read_csv(st.secrets.CSV1_URL)
+    df_day2 = pd.read_csv(st.secrets.CSV2_URL)
+    df_day3 = pd.read_csv(st.secrets.CSV3_URL)
+
+    # アイコン情報を取得
     icon_df, icon_classes = load_icon_data(st.secrets.ICON_SHEET_URL)
     
     # CSSを適用
     st.markdown(get_css(icon_classes), unsafe_allow_html=True)
+
+    # 時間を整形
+    df_day1['時間'] = df_day1['時間'].apply(format_time)
+    df_day2['時間'] = df_day2['時間'].apply(format_time)
+    df_day3['時間'] = df_day3['時間'].apply(format_time)
     
-    # タイムライン風に表示
-    st.write("### スケジュール")
+    # タブで日ごとのスケジュールを表示
+    tabs = st.tabs(["1日目", "2日目", "3日目"])
+
+    with tabs[0]:
+        st.write("### 1日目のスケジュール")
+        display_schedule(df_day1, icon_df)
+    
+    with tabs[1]:
+        st.write("### 2日目のスケジュール")
+        display_schedule(df_day2, icon_df)
+    
+    with tabs[2]:
+        st.write("### 3日目のスケジュール")
+        display_schedule(df_day3, icon_df)
+
+# スケジュール表示用の関数
+def display_schedule(df, icon_df):
     for index, row in df.iterrows():
         icon, bg_color = get_icon(row['アイコン'], icon_df)  # 備考に応じてアイコンを取得
         st.markdown(f"""
