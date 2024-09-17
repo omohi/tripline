@@ -34,7 +34,7 @@ def get_css(icon_classes):
     }
     .time {
         font-size: 22px;  /* 少し小さめに変更 */
-        color: #7A7891;
+        color: #5c588b;
         text-align: left;
         margin-right: 10px;  /* アイコンとの間隔を調整 */
     }
