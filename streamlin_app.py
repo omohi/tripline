@@ -134,13 +134,6 @@ def display_schedule(df, icon_df):
                         <div class="remarks">{remarks}</div>
                     </div>
                 </div>
-                <!-- expanderはスケジュールの下に縦並びで表示 -->
-                <details class="expander-details" style="display: block; margin-top: 10px;">
-                    <summary>{row['タイトル']}</summary>
-                    <div class="expander-content">
-                        {row['詳細']}
-                    </div>
-                </details>
             </div>
             """, unsafe_allow_html=True)
 
