@@ -92,7 +92,7 @@ def get_css(icon_classes):
         }
         .expander-details {
             margin-top: 10px; /* スケジュール部分との間に余白を設ける */
-            margin-bottom: 20px; /* expanderの下に追加の余白を設ける */
+            margin-bottom: 10px; /* expanderの下に追加の余白を設ける */
             width: 100%;  /* expanderも全幅に対応 */
         }
         .expander-content {
