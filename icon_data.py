@@ -56,6 +56,7 @@ def get_css(icon_classes):
         border-radius: 50% !important;  /* 円形にする */
         position: relative;  /* 円形の背景をアイコンの後ろに配置 */
         color: #fff;  /* アイコンを白にする */
+        aspect-ratio: 1/1;  /* アイコンの比率を維持 */
     }
     .icon::before {
         content: '';
