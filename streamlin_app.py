@@ -1,3 +1,4 @@
+import re
 import streamlit as st
 import pandas as pd
 from icon_data import load_icon_data, get_icon, get_css
