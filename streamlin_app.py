@@ -114,9 +114,9 @@ def display_schedule(df, icon_df):
             </div>
             <!-- expanderはスケジュールの下に縦並びで表示 -->
             <details class="expander-details" style="display: block; margin-top: 10px;">
-                <summary>もっと見る</summary>
+                <summary>{row['タイトル']}</summary>
                 <div class="expander-content">
-                    実はそう
+                    {row['詳細']}
                 </div>
             </details>
         </div>
