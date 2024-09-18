@@ -112,7 +112,7 @@ def display_schedule(df, icon_df):
         </div>
         """, unsafe_allow_html=True)
 								with st.expander('test'):
-												st.write('test')
+									st.write('test')
 
 # CSV読み込み用関数
 def load_csv(url):
