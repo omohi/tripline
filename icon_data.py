@@ -101,6 +101,35 @@ def get_css(icon_classes):
             border-radius: 4px;
             margin-top: 5px;
         }
+        .expander-details {
+        border: 1px solid #d1d1d1; /* 境界線 */
+        background-color: #f9f9f9; /* 背景色 */
+        border-radius: 5px; /* 角の丸み */
+        padding: 10px; /* 内側の余白 */
+        margin-bottom: 10px; /* 下部の余白 */
+        }
+        /* summary タグのカスタマイズ */
+        .expander-details summary {
+        font-size: 1rem; /* フォントサイズの調整 */
+        font-weight: bold; /* 太字 */
+        color: #333; /* 文字色 */
+        cursor: pointer; /* クリック時のカーソルを変更 */
+        list-style: none; /* デフォルトのリストスタイルを無効化 */
+        padding: 5px 0; /* summary内の余白を追加 */
+        }
+
+        /* summary タグが展開されている状態のスタイル */
+        .expander-details[open] summary {
+        color: #007bff; /* 展開時の色変更 */
+}
+
+        /* 展開内容のスタイル */
+        .expander-content {
+        margin-top: 10px; /* 上部に余白を追加 */
+        font-size: 0.9rem; /* 少し小さめのフォント */
+        color: #666; /* 文字色 */
+        line-height: 1.5; /* 行間を広げて読みやすく */
+        }
         </style>
     """
     return css
