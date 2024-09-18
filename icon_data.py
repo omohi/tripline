@@ -42,7 +42,6 @@ def get_css(icon_classes):
         font-size: 22px;  /* 少し小さめに変更 */
         color: #1e1b44;
         text-align: left;
-        font-family: 'M PLUS Rounded 1c', sans-serif;
         margin-right: 10px;  /* アイコンとの間隔を調整 */
     }
     .icon {
