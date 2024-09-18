@@ -109,6 +109,13 @@ def display_schedule(df, icon_df):
                 <div class="schedule">{row['スケジュール']}</div>
                 <div class="remarks">{remarks}</div>
             </div>
+            <!-- expander部分をここに挿入 -->
+            <details class="expander-details">
+                <summary>詳細を表示</summary>
+                <div class="expander-content">
+                    test
+                </div>
+            </details>
         </div>
         """, unsafe_allow_html=True)
         with st.expander('test'):
