@@ -14,8 +14,7 @@ def get_icon(remark, icon_df):
     bg_color = colors.get(icon, '#ddd')  # デフォルト背景色
     
     return f'<i class="{icon}"></i>', bg_color
-
-# CSSを生成する関数
+    
 def get_css(icon_classes):
     css = """
     <head>
@@ -26,12 +25,18 @@ def get_css(icon_classes):
     <style>
     .schedule-container {
         display: flex;
-        align-items: center;
+        flex-direction: column;  /* 垂直方向にアイテムを配置 */
+        align-items: flex-start;  /* 左寄せ */
         margin-bottom: 15px;
         width: 100%;  /* 全幅に対応 */
         border-bottom: 1px solid #ddd;  /* 区切り線の追加 */
         padding-bottom: 10px;  /* 下部に少し余白を追加 */
+    }
+    .schedule-header {
+        display: flex;
+        align-items: center;
         justify-content: flex-start;  /* 左寄せに設定 */
+        width: 100%;  /* ヘッダーも全幅に対応 */
     }
     .time {
         font-size: 22px;  /* 少し小さめに変更 */
@@ -63,16 +68,17 @@ def get_css(icon_classes):
     }
     """
     for icon, color in icon_classes.items():
-        icon_before = """
-            .{icon}::before {
-                background-color: {color};  /* 飛行機アイコンの背景色 */
-            }
+        icon_before = f"""
+            .{icon}::before {{
+                background-color: {color};  /* アイコンの背景色 */
+            }}
             """
         css += icon_before
-        
+
     css += """
         .details {
             text-align: left;
+            width: 100%;  /* 詳細部分も全幅に対応 */
         }
         .details .schedule {
             font-size: 18px;  /* スケジュールのフォントサイズを小さめに */
@@ -86,7 +92,7 @@ def get_css(icon_classes):
         .expander-details {
             margin-top: 10px; /* スケジュール部分との間に余白を設ける */
             margin-bottom: 20px; /* expanderの下に追加の余白を設ける */
-            clear: both; /* expanderをコンテナの下に配置 */
+            width: 100%;  /* expanderも全幅に対応 */
         }
         .expander-content {
             padding: 10px;
