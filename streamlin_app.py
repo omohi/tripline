@@ -113,12 +113,12 @@ def display_schedule(df, icon_df):
                 </div>
             </div>
             <!-- expanderはスケジュールの下に縦並びで表示 -->
-            <div class="expander-details" style="display: block; margin-top: 10px;">
+            <details class="expander-details" style="display: block; margin-top: 10px;">
                 <summary>詳細</summary>
                 <div class="expander-content">
-                    テスト
+                    テストだよ
                 </div>
-            </div>
+            </details>
         </div>
         """, unsafe_allow_html=True)
 
