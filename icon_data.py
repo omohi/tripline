@@ -121,8 +121,7 @@ def get_css(icon_classes):
         /* summary タグが展開されている状態のスタイル */
         .expander-details[open] summary {
         color: #007bff; /* 展開時の色変更 */
-}
-
+        }
         /* 展開内容のスタイル */
         .expander-content {
         margin-top: 10px; /* 上部に余白を追加 */
