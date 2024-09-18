@@ -83,6 +83,16 @@ def get_css(icon_classes):
             font-size: 14px;  /* 備考のフォントサイズも小さめに */
             color: #555;
         }
+        .expander-details {
+            margin-top: 10px; /*スケジュール部分との間に余白を設ける */
+        }
+        .expander-content {
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
         </style>
     """
     return css
