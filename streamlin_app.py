@@ -118,7 +118,7 @@ def display_schedule(df, icon_df):
     for index, row in df.iterrows():
         icon, bg_color = get_icon(row['アイコン'], icon_df)
         remarks = row['備考'] if pd.notna(row['備考']) and row['備考'].strip() != '' else ''
-        details = convert_urls_to_links(row['詳細']) if pd.notna(row['詳細']) else ''
+        details = convert_urls_to_links_or_images(row['詳細']) if pd.notna(row['詳細']) else ''
         if pd.notna(row['タイトル']) and row['タイトル'].strip() != '':
             st.markdown(f"""
             <div class="schedule-container">
