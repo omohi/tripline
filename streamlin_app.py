@@ -116,7 +116,7 @@ def display_schedule(df, icon_df):
             <div class="expander-details" style="display: block; margin-top: 10px;">
                 <summary>詳細</summary>
                 <div class="expander-content">
-                    test
+                    テスト
                 </div>
             </div>
         </div>
