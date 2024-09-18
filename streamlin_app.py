@@ -103,13 +103,15 @@ def display_schedule(df, icon_df):
         remarks = row['備考'] if pd.notna(row['備考']) and row['備考'].strip() != '' else ''
         st.markdown(f"""
         <div class="schedule-container">
-            <div class="time">{row['時間']}</div>
-            <div class="icon" style="background-color: {bg_color};">{icon}</div>
-            <div class="details">
-                <div class="schedule">{row['スケジュール']}</div>
-                <div class="remarks">{remarks}</div>
+            <div class="schedule-header">
+                <div class="time">{row['時間']}</div>
+                <div class="icon" style="background-color: {bg_color};">{icon}</div>
+                <div class="details">
+                    <div class="schedule">{row['スケジュール']}</div>
+                    <div class="remarks">{remarks}</div>
+                </div>
             </div>
-            <!-- expander部分をここに挿入 -->
+            <!-- expander部分をschedule-headerの下に挿入 -->
             <details class="expander-details">
                 <summary>詳細を表示</summary>
                 <div class="expander-content">
@@ -118,8 +120,6 @@ def display_schedule(df, icon_df):
             </details>
         </div>
         """, unsafe_allow_html=True)
-        #with st.expander('test'):
-            #st.write('test')
 
 # CSV読み込み用関数
 def load_csv(url):
