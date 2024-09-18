@@ -8,6 +8,11 @@ def format_time(time_str):
         return pd.to_datetime(time_str, format='%H:%M').strftime('%H:%M')
     except:
         return time_str
+								
+# URLを検出してリンクに変換する関数
+def convert_urls_to_links(text):
+    url_pattern = re.compile(r'(https?://\S+)')
+    return url_pattern.sub(r'<a href="\1" target="_blank">\1</a>', text)
 
 # メインのStreamlitアプリの関数
 def main():
@@ -101,6 +106,7 @@ def display_schedule(df, icon_df):
     for index, row in df.iterrows():
         icon, bg_color = get_icon(row['アイコン'], icon_df)
         remarks = row['備考'] if pd.notna(row['備考']) and row['備考'].strip() != '' else ''
+        details = convert_urls_to_links(row['詳細']) if pd.notna(row['詳細']) else ''
         if pd.notna(row['タイトル']) and row['タイトル'].strip() != '':
             st.markdown(f"""
             <div class="schedule-container">
@@ -117,7 +123,7 @@ def display_schedule(df, icon_df):
                 <details class="expander-details" style="display: block; margin-top: 10px;">
                     <summary>{row['タイトル']}</summary>
                     <div class="expander-content">
-                        {row['詳細']}
+                        {details}
                     </div>
                 </details>
             </div>
