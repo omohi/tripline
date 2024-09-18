@@ -10,10 +10,21 @@ def format_time(time_str):
     except:
         return time_str
 								
-# URLを検出してリンクに変換する関数
-def convert_urls_to_links(text):
+# URLを検出してリンクまたは画像として変換する関数
+def convert_urls_to_links_or_images(text):
     url_pattern = re.compile(r'(https?://\S+)')
-    return url_pattern.sub(r'<a href="\1" target="_blank">\1</a>', text)
+    def replace_url(match):
+        url = match.group(1)
+        if is_image_url(url):
+            return f'<img src="{url}" style="max-width: 100%; height: auto;" />'
+        else:
+            return f'<a href="{url}" target="_blank">{url}</a>'
+    return url_pattern.sub(replace_url, text)
+
+# URLが画像かどうかを判断する関数
+def is_image_url(url):
+    image_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp']
+    return any(url.lower().endswith(ext) for ext in image_extensions)
 
 # メインのStreamlitアプリの関数
 def main():
