@@ -95,13 +95,15 @@ def main():
 	}
         </style>
     """, unsafe_allow_html=True)
-	    
+
 # スケジュール表示用の関数
 def display_schedule(df, icon_df):
     for index, row in df.iterrows():
         icon, bg_color = get_icon(row['アイコン'], icon_df)
         remarks = row['備考'] if pd.notna(row['備考']) and row['備考'].strip() != '' else ''
-        st.markdown(f"""
+        
+        # HTMLのベース部分
+        content = f"""
         <div class="schedule-container">
             <!-- ヘッダー部分は横並び -->
             <div class="schedule-header" style="display: flex; align-items: center;">
@@ -112,6 +114,11 @@ def display_schedule(df, icon_df):
                     <div class="remarks">{remarks}</div>
                 </div>
             </div>
+        """
+
+        # タイトルが存在する場合のみ展開メニューを追加
+        if pd.notna(row['タイトル']) and row['タイトル'].strip() != '':
+            content += f"""
             <!-- expanderはスケジュールの下に縦並びで表示 -->
             <details class="expander-details" style="display: block; margin-top: 10px;">
                 <summary>{row['タイトル']}</summary>
@@ -119,8 +126,13 @@ def display_schedule(df, icon_df):
                     {row['詳細']}
                 </div>
             </details>
-        </div>
-        """, unsafe_allow_html=True)
+            """
+
+        # divの終了タグを追加
+        content += "</div>"
+        
+        # マークダウンとして表示
+        st.markdown(content, unsafe_allow_html=True)
 
 # CSV読み込み用関数
 def load_csv(url):
