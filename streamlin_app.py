@@ -101,38 +101,48 @@ def display_schedule(df, icon_df):
     for index, row in df.iterrows():
         icon, bg_color = get_icon(row['アイコン'], icon_df)
         remarks = row['備考'] if pd.notna(row['備考']) and row['備考'].strip() != '' else ''
-        
-        # HTMLのベース部分
-        content = f"""
-        <div class="schedule-container">
-            <!-- ヘッダー部分は横並び -->
-            <div class="schedule-header" style="display: flex; align-items: center;">
-                <div class="time">{row['時間']}</div>
-                <div class="icon" style="background-color: {bg_color};">{icon}</div>
-                <div class="details">
-                    <div class="schedule">{row['スケジュール']}</div>
-                    <div class="remarks">{remarks}</div>
+								if pd.notna(row['タイトル']) and row['タイトル'].strip() != '':
+            st.markdown(f"""
+            <div class="schedule-container">
+                <!-- ヘッダー部分は横並び -->
+                <div class="schedule-header"  style="display: flex; align-items: center;">
+                    <div class="time">{row['時間']}</div>
+                    <div class="icon" style="background-color: {bg_color};">{icon}</div>
+                    <div class="details">
+                        <div class="schedule">{row['スケジュール']}</div>
+                        <div class="remarks">{remarks}</div>
+                    </div>
                 </div>
+                <!-- expanderはスケジュールの下に縦並びで表示 -->
+                <details class="expander-details" style="display: block; margin-top: 10px;">
+                    <summary>{row['タイトル']}</summary>
+                    <div class="expander-content">
+                        {row['詳細']}
+                    </div>
+                </details>
             </div>
-        """
-
-        # タイトルが存在する場合のみ展開メニューを追加
-        if pd.notna(row['タイトル']) and row['タイトル'].strip() != '':
-            content += f"""
-            <!-- expanderはスケジュールの下に縦並びで表示 -->
-            <details class="expander-details" style="display: block; margin-top: 10px;">
-                <summary>{row['タイトル']}</summary>
-                <div class="expander-content">
-                    {row['詳細']}
+            """, unsafe_allow_html=True)
+        else:
+            st.markdown(f"""
+            <div class="schedule-container">
+                <!-- ヘッダー部分は横並び -->
+                <div class="schedule-header"  style="display: flex; align-items: center;">
+                    <div class="time">{row['時間']}</div>
+                    <div class="icon" style="background-color: {bg_color};">{icon}</div>
+                    <div class="details">
+                        <div class="schedule">{row['スケジュール']}</div>
+                        <div class="remarks">{remarks}</div>
+                    </div>
                 </div>
-            </details>
-            """
-
-        # divの終了タグを追加
-        content += "</div>"
-        
-        # マークダウンとして表示
-        st.markdown(content, unsafe_allow_html=True)
+                <!-- expanderはスケジュールの下に縦並びで表示 -->
+                <details class="expander-details" style="display: block; margin-top: 10px;">
+                    <summary>{row['タイトル']}</summary>
+                    <div class="expander-content">
+                        {row['詳細']}
+                    </div>
+                </details>
+            </div>
+            """, unsafe_allow_html=True)
 
 # CSV読み込み用関数
 def load_csv(url):
