@@ -90,42 +90,38 @@ def get_css(icon_classes):
             color: #555;
         }
         .expander-details {
-        padding: 0; /* 余計な余白を全て排除 */
+        padding: 10px 0; /* 他の要素との間隔に合わせる */
         margin-top: 10px;
-        background-color: transparent; /* 背景は透明に */
+        background-color: transparent; /* 背景色を透明にしつつ */
         transition: all 0.3s ease;
-        }
-        .expander-details:hover {
-        /* ホバー時の微妙な色変化で洗練感を追加 */
-        background-color: rgba(0, 0, 0, 0.03);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* 目立たない区切り線 */
         }
         .expander-content {
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.5s ease, opacity 0.5s ease;
         opacity: 0;
-        padding: 0; /* 余白をなくして最小限に */
+        padding: 10px 0; /* コンテンツ内の余白を追加 */
+        font-size: 14px; /* 他のテキストに合わせたサイズ */
+        line-height: 1.6; /* 読みやすさを向上 */
         }
         .expander-details[open] .expander-content {
-        max-height: 1000px; /* 必要に応じて調整 */
+        max-height: 1000px; /* 必要な高さに応じて */
         opacity: 1; /* 展開時の透明度を削除 */
         }
         summary {
-        font-size: 16px; /* 少し控えめなフォントサイズ */
-        font-weight: 300; /* 細いフォントで洗練感を */
-        color: #333; /* シンプルな濃いグレー */
+        font-size: 16px; /* 調和の取れたフォントサイズ */
+        font-weight: 400; /* 標準のウェイトで自然に */
+        color: #444; /* 落ち着いた濃いグレー */
         cursor: pointer;
-        padding-left: 0;
-        list-style: none; /* 不要なアイコンは全て排除 */
+        list-style: none; /* アイコンや箇条書きスタイルを排除 */
         transition: color 0.3s ease;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* 軽い線で区切りを作る */
         }
         summary:hover {
-        color: #000; /* ホバー時に少し濃くする */
+        color: #000; /* ホバー時に少し強調 */
         }
         details[open] summary {
-        color: #000; /* 展開時は濃い色 */
-        border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* 展開時の線を少し濃く */
+        color: #000; /* 開いた時にフォントを強調 */
         }
         </style>
     """
