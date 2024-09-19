@@ -130,18 +130,18 @@ def get_css(icon_classes):
         display: none; /* デフォルトのマーカーを非表示 */
         }
         summary::after {
-        content: "▶"; /* 右向き三角形 */
+        content: "▼"; /* 下向き三角形 */
         font-size: 18px; /* 記号のサイズ調整 */
         color: #666; /* 記号の色 */
         position: absolute;
         right: 10px; /* 右側に配置 */
         top: 50%;
-        transform: translateY(-50%); /* 垂直方向の中央揃え */
-        transition: transform 0.3s ease; /* 展開時のアニメーション */
+        transform: translateY(-50%) rotate(0deg); /* 垂直方向の中央揃えと初期回転角度 */
+        transition: transform 0.3s ease; /* 回転アニメーション */
         }
         details[open] summary::after {
-        content: "▼"; /* 下向き三角形 */
-        transform: translateY(0%) rotate(180deg); /* 記号の向き変更 */
+        content: "▲"; /* 上向き三角形 */
+        transform: translateY(-50%) rotate(180deg); /* 上向き三角形に回転 */
         }
         </style>
     """
