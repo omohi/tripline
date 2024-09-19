@@ -99,7 +99,7 @@ def get_css(icon_classes):
         transition: box-shadow 0.3s ease;
         max-width: 100%; /* 横幅の制限 */
         width: 100%; /* 幅をフルにする */
-        position: relative; /* 記号の位置調整のため */
+         position: relative; /* 記号の位置調整のため */
         }
         .expander-details:hover {
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -126,18 +126,21 @@ def get_css(icon_classes):
         padding-left: 0;  /* 左の余白を削除 */
         padding-right: 25px; /* 右の余白を追加 */
         }
+        summary::-webkit-details-marker {
+        display: none; /* デフォルトのマーカーを非表示 */
+        }
         summary::after {
-        content: "\25B6"; /* 右向きの三角形記号 */
+        content: "▶"; /* 右向き三角形 */
         font-size: 18px; /* 記号のサイズ調整 */
         color: #666; /* 記号の色 */
         position: absolute;
         right: 10px; /* 右側に配置 */
         top: 50%;
         transform: translateY(-50%); /* 垂直方向の中央揃え */
-        transition: transform 0.3s ease; /* 展開時のアニメーション *
+        transition: transform 0.3s ease; /* 展開時のアニメーション */
         }
         details[open] summary::after {
-        content: "\25BC"; /* 下向きの三角形記号 */
+        content: "▼"; /* 下向き三角形 */
         transform: translateY(-50%) rotate(90deg); /* 記号の向き変更 */
         }
         </style>
