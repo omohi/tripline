@@ -94,15 +94,12 @@ def get_css(icon_classes):
         border-radius: 8px;
         padding: 10px;
         margin-top: 10px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         background-color: #f9f9f9;
-        transition: box-shadow 0.3s ease;
         max-width: 100%; /* 横幅の制限 */
         width: 100%; /* 幅をフルにする */
          position: relative; /* 記号の位置調整のため */
         }
         .expander-details:hover {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         .expander-content {
         max-height: 0;
@@ -125,6 +122,7 @@ def get_css(icon_classes):
         list-style: none; /* 矢印を削除 */
         padding-left: 0;  /* 左の余白を削除 */
         padding-right: 25px; /* 右の余白を追加 */
+        padding-bottom: 10px; /* タイトルと内容の間にスペースを追加 */
         }
         summary::-webkit-details-marker {
         display: none; /* デフォルトのマーカーを非表示 */
