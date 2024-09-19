@@ -106,7 +106,7 @@ def get_css(icon_classes):
         overflow: hidden;
         transition: max-height 0.5s ease;
         background-color: #fff;
-        padding: 15px;
+        padding: 20px;
         border-radius: 8px;
         max-width: 100%; /* 横幅を一定に保つ */
         }
@@ -122,7 +122,6 @@ def get_css(icon_classes):
         list-style: none; /* 矢印を削除 */
         padding-left: 0;  /* 左の余白を削除 */
         padding-right: 25px; /* 右の余白を追加 */
-        padding-bottom: 10px; /* タイトルと内容の間にスペースを追加 */
         }
         summary::-webkit-details-marker {
         display: none; /* デフォルトのマーカーを非表示 */
