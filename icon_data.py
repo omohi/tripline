@@ -90,44 +90,44 @@ def get_css(icon_classes):
             color: #555;
         }
         .expander-details {
-            margin-top: 10px; /* スケジュール部分との間に余白を設ける */
-            margin-bottom: 5px; /* expanderの下に追加の余白を設ける */
-            width: 100%;  /* expanderも全幅に対応 */
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        margin-top: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        background-color: #f9f9f9;
+        transition: box-shadow 0.3s ease;
+        }
+        .expander-details:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         .expander-content {
-            padding: 10px;
-            background-color: #f0f0f0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin-top: 5px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 8px;
         }
-        .expander-details {
-        border: 1px solid #d1d1d1; /* 境界線 */
-        background-color: #f9f9f9; /* 背景色 */
-        border-radius: 5px; /* 角の丸み */
-        padding: 10px; /* 内側の余白 */
-        margin-bottom: 10px; /* 下部の余白 */
+        .expander-details[open] .expander-content {
+        max-height: 500px; /* 必要に応じて調整 */
         }
-        /* summary タグのカスタマイズ */
-        .expander-details summary {
-        font-size: 1rem; /* フォントサイズの調整 */
-        font-weight: bold; /* 太字 */
-        color: #333; /* 文字色 */
-        cursor: pointer; /* クリック時のカーソルを変更 */
-        list-style: none; /* デフォルトのリストスタイルを無効化 */
-        padding: 5px 0; /* summary内の余白を追加 */
+        summary {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        cursor: pointer;
+        position: relative;
         }
-
-        /* summary タグが展開されている状態のスタイル */
-        .expander-details[open] summary {
-        color: #007bff; /* 展開時の色変更 */
+        summary::after {
+        content: '\25BC'; /* 下向きの矢印 */
+        font-size: 12px;
+        position: absolute;
+        right: 10px;
+        transition: transform 0.3s ease;
         }
-        /* 展開内容のスタイル */
-        .expander-content {
-        margin-top: 10px; /* 上部に余白を追加 */
-        font-size: 0.9rem; /* 少し小さめのフォント */
-        color: #666; /* 文字色 */
-        line-height: 1.5; /* 行間を広げて読みやすく */
+        details[open] summary::after {
+        transform: rotate(180deg);
         }
         </style>
     """
