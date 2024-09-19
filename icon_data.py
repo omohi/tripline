@@ -90,38 +90,55 @@ def get_css(icon_classes):
             color: #555;
         }
         .expander-details {
-        padding: 10px 0; /* 他の要素との間隔に合わせる */
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
         margin-top: 10px;
-        background-color: transparent; /* 背景色を透明にしつつ */
-        transition: all 0.3s ease;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* 目立たない区切り線 */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        background-color: #f9f9f9;
+        transition: box-shadow 0.3s ease;
+        max-width: 100%; /* 横幅の制限 */
+        width: 100%; /* 幅をフルにする */
+        position: relative; /* 記号の位置調整のため */
+        }
+        .expander-details:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         .expander-content {
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.5s ease, opacity 0.5s ease;
-        opacity: 0;
-        padding: 10px 0; /* コンテンツ内の余白を追加 */
-        font-size: 14px; /* 他のテキストに合わせたサイズ */
-        line-height: 1.6; /* 読みやすさを向上 */
+        transition: max-height 0.5s ease;
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        max-width: 100%; /* 横幅を一定に保つ */
         }
         .expander-details[open] .expander-content {
-        max-height: 1000px; /* 必要な高さに応じて */
-        opacity: 1; /* 展開時の透明度を削除 */
+        max-height: 500px; /* 必要に応じて調整 */
         }
         summary {
-        font-size: 16px; /* 調和の取れたフォントサイズ */
-        font-weight: 400; /* 標準のウェイトで自然に */
-        color: #444; /* 落ち着いた濃いグレー */
+        font-size: 16px;  /* フォントサイズを小さく調整 */
+        font-weight: normal;
+        color: #666;  /* 色を控えめに変更 */
         cursor: pointer;
-        list-style: none; /* アイコンや箇条書きスタイルを排除 */
-        transition: color 0.3s ease;
+        position: relative;
+        list-style: none; /* 矢印を削除 */
+        padding-left: 0;  /* 左の余白を削除 */
+        padding-right: 25px; /* 右の余白を追加 */
         }
-        summary:hover {
-        color: #000; /* ホバー時に少し強調 */
+        summary::after {
+        content: "\25B6"; /* 右向きの三角形記号 */
+        font-size: 18px; /* 記号のサイズ調整 */
+        color: #666; /* 記号の色 */
+        position: absolute;
+        right: 10px; /* 右側に配置 */
+        top: 50%;
+        transform: translateY(-50%); /* 垂直方向の中央揃え */
+        transition: transform 0.3s ease; /* 展開時のアニメーション *
         }
-        details[open] summary {
-        color: #000; /* 開いた時にフォントを強調 */
+        details[open] summary::after {
+        content: "\25BC"; /* 下向きの三角形記号 */
+        transform: translateY(-50%) rotate(90deg); /* 記号の向き変更 */
         }
         </style>
     """
