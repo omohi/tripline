@@ -97,6 +97,7 @@ def get_css(icon_classes):
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         background-color: #f9f9f9;
         transition: box-shadow 0.3s ease;
+        max-width: 100%; /* 横幅の制限 */
         }
         .expander-details:hover {
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -108,26 +109,25 @@ def get_css(icon_classes):
         background-color: #fff;
         padding: 15px;
         border-radius: 8px;
+        max-width: 100%; /* 横幅を一定に保つ */
         }
         .expander-details[open] .expander-content {
         max-height: 500px; /* 必要に応じて調整 */
         }
         summary {
-        font-size: 18px;
-        font-weight: bold;
-        color: #333;
+        font-size: 16px;  /* フォントサイズを小さく調整 */
+        font-weight: normal;
+        color: #666;  /* 色を控えめに変更 */
         cursor: pointer;
         position: relative;
+        list-style: none; /* 矢印を削除 */
+        padding-left: 0;  /* 左の余白を削除 */
         }
-        summary::after {
-        content: '\25BC'; /* 下向きの矢印 */
-        font-size: 12px;
-        position: absolute;
-        right: 10px;
-        transition: transform 0.3s ease;
+        summary:hover {
+        color: #333;  /* ホバー時に少し濃くする */
         }
-        details[open] summary::after {
-        transform: rotate(180deg);
+        details[open] summary {
+        color: #333;  /* 展開時の文字色を少し濃くする */
         }
         </style>
     """
