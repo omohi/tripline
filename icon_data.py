@@ -90,44 +90,42 @@ def get_css(icon_classes):
             color: #555;
         }
         .expander-details {
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 10px;
+        padding: 0; /* 余計な余白を全て排除 */
         margin-top: 10px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        background-color: #f9f9f9;
-        transition: box-shadow 0.3s ease;
-        max-width: 100%; /* 横幅の制限 */
+        background-color: transparent; /* 背景は透明に */
+        transition: all 0.3s ease;
         }
         .expander-details:hover {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        /* ホバー時の微妙な色変化で洗練感を追加 */
+        background-color: rgba(0, 0, 0, 0.03);
         }
         .expander-content {
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.5s ease;
-        background-color: #fff;
-        padding: 15px;
-        border-radius: 8px;
-        max-width: 100%; /* 横幅を一定に保つ */
+        transition: max-height 0.5s ease, opacity 0.5s ease;
+        opacity: 0;
+        padding: 0; /* 余白をなくして最小限に */
         }
         .expander-details[open] .expander-content {
-        max-height: 500px; /* 必要に応じて調整 */
+        max-height: 1000px; /* 必要に応じて調整 */
+        opacity: 1; /* 展開時の透明度を削除 */
         }
         summary {
-        font-size: 16px;  /* フォントサイズを小さく調整 */
-        font-weight: normal;
-        color: #666;  /* 色を控えめに変更 */
+        font-size: 16px; /* 少し控えめなフォントサイズ */
+        font-weight: 300; /* 細いフォントで洗練感を */
+        color: #333; /* シンプルな濃いグレー */
         cursor: pointer;
-        position: relative;
-        list-style: none; /* 矢印を削除 */
-        padding-left: 0;  /* 左の余白を削除 */
+        padding-left: 0;
+        list-style: none; /* 不要なアイコンは全て排除 */
+        transition: color 0.3s ease;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* 軽い線で区切りを作る */
         }
         summary:hover {
-        color: #333;  /* ホバー時に少し濃くする */
+        color: #000; /* ホバー時に少し濃くする */
         }
         details[open] summary {
-        color: #333;  /* 展開時の文字色を少し濃くする */
+        color: #000; /* 展開時は濃い色 */
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* 展開時の線を少し濃く */
         }
         </style>
     """
