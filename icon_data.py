@@ -141,7 +141,7 @@ def get_css(icon_classes):
         }
         details[open] summary::after {
         content: "▼"; /* 下向き三角形 */
-        transform: translateY(-50%) rotate(90deg); /* 記号の向き変更 */
+        transform: translateY(-50%) rotate(0deg); /* 記号の向き変更 */
         }
         </style>
     """
