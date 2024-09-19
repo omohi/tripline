@@ -140,7 +140,6 @@ def get_css(icon_classes):
         transition: transform 0.3s ease; /* 回転アニメーション */
         }
         details[open] summary::after {
-        content: "▲"; /* 上向き三角形 */
         transform: translateY(-50%) rotate(180deg); /* 上向き三角形に回転 */
         }
         </style>
